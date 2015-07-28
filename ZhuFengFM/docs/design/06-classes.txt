@@ -1,0 +1,31 @@
+
+UI界面
+
+	SplashActivity:启动扉页
+	GuideActivity:教程页
+	MainActivity:主界面
+
+
+
+
+
+
+网络部分
+
+	client包
+
+		HttpUtils:用于处理http请求的服务类
+		ClientDiscoverAPI:发现栏目的所有接口调用
+
+
+	util包
+
+		StreamUtil:用于处理IO流
+
+	tasks包
+
+		BaseTask:公共的异步任务
+		TaskCallback:
+		TaskResult:
+
+		impl包:
