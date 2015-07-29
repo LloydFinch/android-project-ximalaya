@@ -1,12 +1,10 @@
 package com.venn.zhufengfm.app.tasks.impl;
 
-import android.app.PendingIntent;
-import android.util.Log;
 import com.venn.zhufengfm.app.client.ClientDiscoverAPI;
 import com.venn.zhufengfm.app.tasks.BaseTask;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
 import com.venn.zhufengfm.app.tasks.TaskResult;
-import com.venn.zhufengfm.app.uitl.TaskConstants;
+import com.venn.zhufengfm.app.uitl.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +20,7 @@ public class CategoryTagMenuTask extends BaseTask {
 	}
 
 	protected TaskResult doInBackground(String... params) {
-		taskResult.setTaskId(TaskConstants.TASK_CATEGORY_TAG_MENU);
+		taskResult.setTaskId(Constants.TASK_CATEGORY_TAG_MENU);
 
 		String type = null;
 

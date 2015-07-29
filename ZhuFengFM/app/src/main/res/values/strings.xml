@@ -10,4 +10,5 @@
 	<string name="title_activity_start">StartActivity</string>
 	<string name="title_activity_guide">GuideActivity</string>
 	<string name="title_activity_main_activity2">MainActivity2Activity</string>
+	<string name="guide_start_main">Go!</string>
 </resources>

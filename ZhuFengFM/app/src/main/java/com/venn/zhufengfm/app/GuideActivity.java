@@ -1,39 +1,67 @@
 package com.venn.zhufengfm.app;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.provider.ContactsContract;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.internal.app.WindowDecorActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import com.venn.zhufengfm.app.adapters.GuideAdapter;
+import com.venn.zhufengfm.app.uitl.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class GuideActivity extends ActionBarActivity {
+//教程页
+public class GuideActivity extends FragmentActivity implements View.OnClickListener {
 
-	@Override
+	private ViewPager guideViewPager;
+	private GuideAdapter guideAdapter;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_guide);
-	}
 
+		guideViewPager = (ViewPager) this.findViewById(R.id.guide_view_pager);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_guide, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
+		List<Integer> images = new ArrayList<Integer>();
+		for (int i = 0; i < 4; i++) {
+			images.add(R.mipmap.ic_launcher);
+		}
+		guideAdapter = new GuideAdapter(this, images);
+		if (guideViewPager != null) {
+			guideViewPager.setOnClickListener(this);
+			guideViewPager.setAdapter(guideAdapter);
 		}
 
-		return super.onOptionsItemSelected(item);
+		//设置SharedPreferences
+		SharedPreferences preferences = getSharedPreferences(Constants.SP_NAME, MODE_PRIVATE);
+		SharedPreferences.Editor editor = preferences.edit();
+
+		editor.putString(Constants.SP_KEY_GUIDE_LAST_SHOW_VER, "1.0");
+		editor.commit();
+	}
+
+
+	public void onClick(View v) {
+		startNext();
+	}
+
+	private void startNext() {
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+		finish();
+	}
+
+	public void onBackPressed() {
+		startNext();
 	}
 }
