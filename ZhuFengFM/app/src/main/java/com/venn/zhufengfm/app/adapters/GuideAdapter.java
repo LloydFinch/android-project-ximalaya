@@ -24,6 +24,10 @@ public class GuideAdapter extends PagerAdapter {
 	private List<Integer> images;
 	private View.OnClickListener goOnClickListener;
 
+	public void setGoOnClickListener(View.OnClickListener goOnClickListener) {
+		this.goOnClickListener = goOnClickListener;
+	}
+
 	public GuideAdapter(Context context, List<Integer> images) {
 		this.context = context;
 		this.images = images;

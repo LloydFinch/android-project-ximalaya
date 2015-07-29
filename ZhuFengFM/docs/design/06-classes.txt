@@ -5,7 +5,23 @@ UI界面
 	GuideActivity:教程页
 	MainActivity:主界面
 
+	Fragment内容:
 
+		DiscoverFragment:发现部分
+
+			子栏目
+
+				DiscoverRecommendFragment
+				DiscoverCategoryFragment
+				DiscoverLiveFragment
+				DiscoverRankingFragment
+				DiscoverAnchorFragment
+
+
+
+		CustomFragment:
+		DownLoadListenFragment:
+		ProfileFragment:
 
 
 

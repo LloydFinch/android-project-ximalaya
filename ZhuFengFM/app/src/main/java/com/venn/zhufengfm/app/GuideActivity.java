@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import com.venn.zhufengfm.app.adapters.GuideAdapter;
 import com.venn.zhufengfm.app.uitl.Constants;
+import com.venn.zhufengfm.app.uitl.PackageUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +38,8 @@ public class GuideActivity extends FragmentActivity implements View.OnClickListe
 			images.add(R.mipmap.ic_launcher);
 		}
 		guideAdapter = new GuideAdapter(this, images);
+		guideAdapter.setGoOnClickListener(this);
 		if (guideViewPager != null) {
-			guideViewPager.setOnClickListener(this);
 			guideViewPager.setAdapter(guideAdapter);
 		}
 
@@ -46,7 +47,7 @@ public class GuideActivity extends FragmentActivity implements View.OnClickListe
 		SharedPreferences preferences = getSharedPreferences(Constants.SP_NAME, MODE_PRIVATE);
 		SharedPreferences.Editor editor = preferences.edit();
 
-		editor.putString(Constants.SP_KEY_GUIDE_LAST_SHOW_VER, "1.0");
+		editor.putString(Constants.SP_KEY_GUIDE_LAST_SHOW_VER, PackageUtil.getPackageVersionName(this));
 		editor.commit();
 	}
 

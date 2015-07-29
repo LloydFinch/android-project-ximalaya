@@ -35,4 +35,15 @@ public class ClientDiscoverAPI {
 
 		return data;
 	}
+
+	//获取发现Tab菜单
+	//调用接口:http://mobile.ximalaya.com/mobile/discovery/v1/tabs?device=android
+	public static String getDiscoverTabs() {
+		String data = null;
+
+		String path = SERVER_MOBILE + "/mobile/discovery/v1/tabs?device=android";
+		byte[] buffer = HttpUtils.doGet(path);
+		data = new String(buffer);
+		return data;
+	}
 }
