@@ -26,10 +26,6 @@
             android:name=".GuideActivity"
             android:label="@string/title_activity_guide" >
         </activity>
-        <activity
-            android:name=".Test1Activity"
-            android:label="@string/title_activity_test1" >
-        </activity>
     </application>
 
 </manifest>

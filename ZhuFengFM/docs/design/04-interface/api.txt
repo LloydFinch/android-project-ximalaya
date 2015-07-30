@@ -121,13 +121,13 @@ http://mobile.ximalaya.com/mobile/discovery/v1/tabs
 
 URL:
 
-	http://mobile.ximalaya.com/mobile/discovery/v1/recommends?version=4.1.7.1&includeActivity=true&includeSpecial=true&device=android&channel=and-f6&scale=2
+	http://mobile.ximalaya.com/mobile/discovery/v1/recommends?channel=and-f6&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.1.7.1
 
 http://mobile.ximalaya.com/mobile/discovery/v1/recommends
 
 	channel	and-f6
 	device	android
-	includeActivity	true
+	includeActivity	 true
 	includeSpecial	true
 	scale 2
 	version	4.1.7.1

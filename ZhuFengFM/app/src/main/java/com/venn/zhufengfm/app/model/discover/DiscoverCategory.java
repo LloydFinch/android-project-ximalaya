@@ -1,5 +1,6 @@
 package com.venn.zhufengfm.app.model.discover;
 
+import com.venn.zhufengfm.app.model.jsontool.ParseJsonTool;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by VennUser on 2015/7/29.
  */
-public class DiscoverCategory implements Comparable<DiscoverCategory> {
+public class DiscoverCategory implements Comparable<DiscoverCategory>,ParseJsonTool{
 
 	private int id;
 	private String name;

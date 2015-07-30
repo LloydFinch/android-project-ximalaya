@@ -1,8 +1,10 @@
 package com.venn.zhufengfm.app.parsers;
 
+import android.util.Log;
 import com.venn.zhufengfm.app.model.discover.CategoryTagMenu;
 import com.venn.zhufengfm.app.model.discover.DiscoverCategory;
 import com.venn.zhufengfm.app.model.discover.DiscoverTab;
+import com.venn.zhufengfm.app.model.discover.recommend.DiscoverRecommend;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,5 +92,18 @@ public class DataParser {
 			e.printStackTrace();
 		}
 		return discoverCategories;
+	}
+
+	public static DiscoverRecommend parseDiscoverRecommend(JSONObject jsonObject) {
+		DiscoverRecommend discoverRecommend = new DiscoverRecommend();
+		try {
+			discoverRecommend.parseJSON(jsonObject);
+			Log.d("------------>", jsonObject.toString());
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+			Log.d("-------------->", e.toString());
+		}
+		return discoverRecommend;
 	}
 }

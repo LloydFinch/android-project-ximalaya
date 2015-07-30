@@ -26,6 +26,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		setTitle("主界面");
+
 		radioGroup = (RadioGroup) this.findViewById(R.id.main_tab_bar);
 		radioGroup.setOnCheckedChangeListener(this);
 		radioGroup.check(R.id.main_tab_item_discover);
@@ -53,10 +55,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 		}
 		transaction.replace(R.id.main_fragment_container, fragment);
 		transaction.commit();
-	}
-
-	protected int getEnterAnimationId() {
-		return 0;
 	}
 
 	protected int getExitAnimationId() {

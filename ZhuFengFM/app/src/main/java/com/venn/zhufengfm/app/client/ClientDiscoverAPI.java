@@ -44,10 +44,20 @@ public class ClientDiscoverAPI {
 	}
 
 	//发现中的分类部分
-	public static String getDiscoverCategories(){
+	public static String getDiscoverCategories() {
 		String data = null;
 
-		String path = SERVER_MOBILE+"/mobile/discovery/v1/categories?device=android&picVersion=10&scale=2";
+		String path = SERVER_MOBILE + "/mobile/discovery/v1/categories?device=android&picVersion=10&scale=2";
+		byte[] buffer = HttpUtils.doGet(path);
+		data = new String(buffer);
+		return data;
+	}
+
+	public static String getDiscoverRecommends() {
+		String data = null;
+
+		String path = SERVER_MOBILE + "/mobile/discovery/v1/recommends?channel=and-f6" +
+				"&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.1.7.1";
 		byte[] buffer = HttpUtils.doGet(path);
 		data = new String(buffer);
 		return data;

@@ -1,8 +1,8 @@
 package com.venn.zhufengfm.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
+import android.widget.TextView;
 
 /**
  * Created by VennUser on 2015/7/30.
@@ -20,6 +20,8 @@ public class BaseActivity extends FragmentActivity{
 		return R.anim.anim_drop_down;
 	}
 
+	private TextView textView;
+
 	//被启动的Activity的进入动画
 	public void startActivity(Intent intent) {
 		super.startActivity(intent);
@@ -30,5 +32,19 @@ public class BaseActivity extends FragmentActivity{
 	public void finish() {
 		super.finish();
 		overridePendingTransition(0, getExitAnimationId());
+	}
+
+	public void setContentView(int layoutResID) {
+		super.setContentView(layoutResID);
+
+		//TODO 为继承此Activity的Activity设置公共属性
+		textView = (TextView) this.findViewById(R.id.common_text);
+	}
+
+	public void setTitle(CharSequence title) {
+
+		if(textView!=null){
+			textView.setText(title);
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package com.venn.zhufengfm.app.model.discover.category.contents;
 
+import android.content.Intent;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -16,7 +18,7 @@ public class DiscoverCategoryContentListItem {
 	private String coverMiddle;
 	private String title;
 	private String tags;
-	private  int tracks;
+	private int tracks;
 	private int trackCounts;
 	private int playCounts;
 	private int lastUptrackId;
@@ -28,8 +30,26 @@ public class DiscoverCategoryContentListItem {
 	public DiscoverCategoryContentListItem() {
 	}
 
-	public void parseJSON(JSONObject json){
-
+	public void parseJSON(JSONObject json) throws JSONException {
+//				"nickname": "有声的紫襟",
+//				"albumCoverUrl290": "http://fdfs.xmcdn
+// .com/group6/M02/0D/43/wKgDg1UmlZjg4lIoAANVXahWnYE722_mobile_meduim.jpg",
+//				"coverMiddle": "http://fdfs.xmcdn.com/group6/M02/0D/43/wKgDg1UmlZjg4lIoAANVXahWnYE722_mobile_meduim
+// .jpg",
+//				"title": "藏地密码（紫襟演播）",
+//				"tags": "有声小说",
+//				"tracks": 420,
+//				"tracksCounts": 420,
+//				"playsCounts": 10392685,
+//				"lastUptrackId": 7994931,
+//				"lastUptrackTitle": "藏地密码10 第27集（微信公众平台：zijinvoice）",
+//				"lastUptrackAt": 1438008935000,
+//				"isFinished": 1,
+//				"serialState": 1
+		id = json.getInt("id");
+		albumId = json.getInt("albumId");
+		uid = json.getInt("uid");
+		intro = json.getString(intro);
 	}
 
 	public int getId() {
