@@ -1,9 +1,8 @@
 package com.venn.zhufengfm.app.parsers;
 
-import android.util.Log;
-import com.venn.zhufengfm.app.model.CategoryTagMenu;
-import com.venn.zhufengfm.app.model.DiscoverTab;
-import com.venn.zhufengfm.app.tasks.TaskResult;
+import com.venn.zhufengfm.app.model.discover.CategoryTagMenu;
+import com.venn.zhufengfm.app.model.discover.DiscoverCategory;
+import com.venn.zhufengfm.app.model.discover.DiscoverTab;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,6 +13,8 @@ import java.util.List;
 /**
  * Created by VennUser on 2015/7/28.
  */
+
+//转化数据的工具类,接收JSONObject,返回解析后的List集合
 public class DataParser {
 
 	private DataParser() {
@@ -47,7 +48,7 @@ public class DataParser {
 		return categoryTagMenuList;
 	}
 
-	public static List<DiscoverTab> parseDiscover(JSONObject jsonObject) {
+	public static List<DiscoverTab> parseDiscoverTab(JSONObject jsonObject) {
 
 		List<DiscoverTab> discoverTabs = new ArrayList<DiscoverTab>();
 		try {
@@ -70,5 +71,24 @@ public class DataParser {
 			e.printStackTrace();
 		}
 		return discoverTabs;
+	}
+
+	public static List<DiscoverCategory> parseDiscoverCategory(JSONObject jsonObject) {
+
+		List<DiscoverCategory> discoverCategories = new ArrayList<DiscoverCategory>();
+		try {
+			int ret = jsonObject.getInt("ret");
+			JSONArray list = jsonObject.getJSONArray("list");
+			for (int i = 0; i < list.length(); i++) {
+				JSONObject json = list.getJSONObject(i);
+				DiscoverCategory discoverCategory = new DiscoverCategory();
+				discoverCategory.parseJSON(json);
+				discoverCategories.add(discoverCategory);
+			}
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return discoverCategories;
 	}
 }

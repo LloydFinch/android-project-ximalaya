@@ -13,7 +13,7 @@ import com.venn.zhufengfm.app.fragments.ProfileFragment;
 
 
 //主界面
-public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
 	private RadioGroup radioGroup;
 
@@ -53,5 +53,13 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 		}
 		transaction.replace(R.id.main_fragment_container, fragment);
 		transaction.commit();
+	}
+
+	protected int getEnterAnimationId() {
+		return 0;
+	}
+
+	protected int getExitAnimationId() {
+		return 0;
 	}
 }

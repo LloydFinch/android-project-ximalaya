@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
-import com.venn.zhufengfm.app.model.CategoryTagMenu;
+import com.venn.zhufengfm.app.model.discover.CategoryTagMenu;
 import com.venn.zhufengfm.app.parsers.DataParser;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
 import com.venn.zhufengfm.app.tasks.TaskResult;

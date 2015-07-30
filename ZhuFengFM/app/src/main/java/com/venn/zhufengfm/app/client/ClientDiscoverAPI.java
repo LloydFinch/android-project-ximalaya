@@ -1,14 +1,10 @@
 package com.venn.zhufengfm.app.client;
 
-import android.util.Log;
-
-import java.net.URL;
-
 /**
  * Created by VennUser on 2015/7/28.
  */
 
-//发现部分的API接口
+//发现部分的API接口,返回Json字符串
 public class ClientDiscoverAPI {
 
 	public static final String SERVER_MOBILE = "http://mobile.ximalaya.com";
@@ -42,6 +38,16 @@ public class ClientDiscoverAPI {
 		String data = null;
 
 		String path = SERVER_MOBILE + "/mobile/discovery/v1/tabs?device=android";
+		byte[] buffer = HttpUtils.doGet(path);
+		data = new String(buffer);
+		return data;
+	}
+
+	//发现中的分类部分
+	public static String getDiscoverCategories(){
+		String data = null;
+
+		String path = SERVER_MOBILE+"/mobile/discovery/v1/categories?device=android&picVersion=10&scale=2";
 		byte[] buffer = HttpUtils.doGet(path);
 		data = new String(buffer);
 		return data;

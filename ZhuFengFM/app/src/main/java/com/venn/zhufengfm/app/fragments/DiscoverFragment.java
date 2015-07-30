@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.venn.zhufengfm.app.R;
 import com.venn.zhufengfm.app.adapters.CommonFragmentPagerAdapter;
 import com.venn.zhufengfm.app.fragments.discover.*;
-import com.venn.zhufengfm.app.model.DiscoverTab;
+import com.venn.zhufengfm.app.model.discover.DiscoverTab;
 import com.venn.zhufengfm.app.parsers.DataParser;
 import com.venn.zhufengfm.app.tasks.DiscoverTabTask;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
@@ -89,7 +89,7 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener, 
 			if (result.getTaskId() == Constants.TASK_DISCOVER_TAB) ;
 			if (data != null && data instanceof JSONObject) {
 				JSONObject jsonObject = (JSONObject) data;
-				discoverTabList = DataParser.parseDiscover(jsonObject);
+				discoverTabList = DataParser.parseDiscoverTab(jsonObject);
 				updateTabs();
 			} else {
 				//TODO 其他操作
