@@ -23,8 +23,7 @@ public class DiscoverRecommendFocusImages implements ParseJsonTool{
 	public void parseJSON(JSONObject json) throws JSONException {
 		ret = json.getInt("ret");
 		title = json.getString("title");
-		DiscoverRecommendFocusImagesItem item = new DiscoverRecommendFocusImagesItem();
-		JsonArrayTool.getJsonArray(itemList,item,json);
+		JsonArrayTool.getJsonArray(itemList,DiscoverRecommendFocusImagesItem.class,json);
 	}
 
 	public int getRet() {

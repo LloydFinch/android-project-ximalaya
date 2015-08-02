@@ -23,8 +23,7 @@ public class DiscoverRecommendHotRecommends implements ParseJsonTool {
 	public void parseJSON(JSONObject json) throws JSONException {
 		ret = json.getInt("ret");
 		title = json.getString("title");
-		DiscoverRecommendHotRecommendsItems item = new DiscoverRecommendHotRecommendsItems();
-		JsonArrayTool.getJsonArray(itemsList, item, json);
+		JsonArrayTool.getJsonArray(itemsList, DiscoverRecommendHotRecommendsItems.class, json);
 	}
 
 	public int getRet() {

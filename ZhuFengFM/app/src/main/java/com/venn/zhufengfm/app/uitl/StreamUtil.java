@@ -20,7 +20,7 @@ public class StreamUtil {
 		ByteArrayOutputStream baos = null;
 		if (in != null) {
 
-			byte[] buff = new byte[1024];
+			byte[] buff = new byte[128];
 			baos = new ByteArrayOutputStream();
 			int length = 0;
 			try {
@@ -31,6 +31,15 @@ public class StreamUtil {
 			}
 			catch (IOException e) {
 				e.printStackTrace();
+			}
+			finally {
+				buff = null;
+				try {
+					baos.close();
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return data;

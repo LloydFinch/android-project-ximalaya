@@ -98,11 +98,9 @@ public class DataParser {
 		DiscoverRecommend discoverRecommend = new DiscoverRecommend();
 		try {
 			discoverRecommend.parseJSON(jsonObject);
-			Log.d("------------>", jsonObject.toString());
 		}
 		catch (JSONException e) {
 			e.printStackTrace();
-			Log.d("-------------->", e.toString());
 		}
 		return discoverRecommend;
 	}

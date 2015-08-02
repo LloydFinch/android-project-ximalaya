@@ -121,15 +121,14 @@ http://mobile.ximalaya.com/mobile/discovery/v1/tabs
 
 URL:
 
-	http://mobile.ximalaya.com/mobile/discovery/v1/recommends?channel=and-f6&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.1.7.1
+http://mobile.ximalaya.com/mobile/discovery/v1/recommends?channel=and-f6&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.1.7.1
 
 http://mobile.ximalaya.com/mobile/discovery/v1/recommends
-
 	channel	and-f6
 	device	android
-	includeActivity	 true
+	includeActivity	true
 	includeSpecial	true
-	scale 2
+	scale	2
 	version	4.1.7.1
 
 12. 发现部分的分类
@@ -162,7 +161,10 @@ http://mobile.ximalaya.com/mobile/discovery/v1/category/tagsWithoutCover
 
 14. 分类4 下面推荐部分 综艺娱乐
 
-http://mobile.ximalaya.com/mobile/discovery/v1/category/recommends?categoryId=4&contentType=album&device=android&version=4.1.7.1
+URL:
+
+	http://mobile.ximalaya.com/mobile/discovery/v1/category/recommends?categoryId=4&contentType=album&device=android&version=4.1.7.1
+
 
 http://mobile.ximalaya.com/mobile/discovery/v1/category/recommends
 
@@ -203,15 +205,12 @@ URL:
 http://mobile.ximalaya.com/mobile/discovery/v1/category/album
 
 	calcDimension	hot
-	device	android
 	categoryId	4
+	device	android
 	pageId	1
 	pageSize	20
 	status	0
 	tagName	tname名称
-
-
-
 
 17. 分类4. 专辑 203355 中 第一页共 20条信息的播放列表信息
 
@@ -219,20 +218,41 @@ URL:
 
 	http://mobile.ximalaya.com/mobile/others/ca/album/track/203355/true/1/20?device=android&pageSize=20&albumId=203355&isAsc=true
 
-	参数顺序
+参数顺序
+
+18 专辑详情
+
+http://mobile.ximalaya.com/mobile/track/detail?device=android&trackId=8060450
 
 
-http://mobile.ximalaya.com/mobile/others/ca/album/track/203355/true/1/20
-
+http://mobile.ximalaya.com/mobile/track/detail
 	device	android
-	pageSize	20
-	albumId	203355
-	isAsc	true
+	trackId	8060450
+
+
+19 专辑评论
+
+http://mobile.ximalaya.com/mobile/track/comment?device=android&pageSize=15&pageId=1&trackId=8060450
+
+http://mobile.ximalaya.com/mobile/track/comment
+	pageSize	15
+	pageId	1
+	device	android
+	trackId	8060450
 
 
 
-18. 从播放列表中获取的音乐信息，进行播放
+20 专辑列表
 
-http://audio.xmcdn.com/group10/M0A/4E/54/wKgDaVWyfeOyjKsHAHHxVA-ffZo601.m4a
-http://audio.xmcdn.com/group10/M01/49/47/wKgDaVWtJOKiedVXAGZINEBqG64790.m4a
-http://audio.xmcdn.com/group16/M06/4A/D8/wKgDalWuZi7xSOUHAFV7hb3I8KE615.m4a
+http://mobile.ximalaya.com/mobile/playlist/album?device=android&albumId=392497&trackId=8060450
+
+
+http://mobile.ximalaya.com/mobile/playlist/album
+	albumId	392497
+	device	android
+	trackId	8060450
+
+21 专辑相关推荐
+
+http://ar.ximalaya.com/rec-association/recommend/album?device=android&trackId=8060450
+

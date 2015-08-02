@@ -3,6 +3,7 @@ package com.venn.zhufengfm.app.fragments.discover;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.venn.zhufengfm.app.tasks.DiscoverCategoryTask;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
 import com.venn.zhufengfm.app.tasks.TaskResult;
 import com.venn.zhufengfm.app.uitl.Constants;
+import com.venn.zhufengfm.app.uitl.MyLog;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -22,6 +24,7 @@ import java.util.List;
 //发现的分类部分
 public class DiscoverCategoryFragment extends Fragment implements TaskCallback {
 
+	private static final  String TAG = "----------->";
 
 	private List<DiscoverCategory> discoverCategoryList;
 
@@ -35,8 +38,12 @@ public class DiscoverCategoryFragment extends Fragment implements TaskCallback {
 		//判断有没有分类
 		List<DiscoverCategory> categories = DataStore.getInstance().getDiscoverCategories();
 		if (categories != null && !categories.isEmpty()) {
+				//有分类
+			MyLog.d(TAG,"有分类");
 
 		} else {
+			//无分类
+			MyLog.d(TAG,"无分类");
 			DiscoverCategoryTask task = new DiscoverCategoryTask(this);
 			task.execute();
 		}

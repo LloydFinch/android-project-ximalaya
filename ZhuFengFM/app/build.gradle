@@ -13,9 +13,16 @@ repositories {
 }
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'zhufeng'
+            keyPassword '123456'
+            storeFile file('F:/Projects/ZhuFengFM/ZhuFeng_keystore.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
-
     defaultConfig {
         applicationId "com.venn.zhufengfm.app"
         minSdkVersion 9
@@ -23,7 +30,6 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
@@ -32,12 +38,30 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+        }
+    }
+    lintOptions {
+        //当发现代码格式错误是否终止
+        abortOnError false
+    }
+
+    //代表当前工程要发布几套软件包
+    productFlavors {
+        //代表一套软件包,也称作发布渠道
+        //如果没有制定字段,使用defaultConfig的值
+        baidu {
+            applicationId "com.venn.zhufengfm.app"
+            versionCode 1
+            versionName "1.0"
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:support-v4:22.2.1'
     compile 'com.android.support:design:22.2.1'

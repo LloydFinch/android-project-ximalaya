@@ -14,5 +14,9 @@ public class Constants {
 	public static final int TASK_DISCOVER_RECOMMEND = 4;
 	public static final String SP_NAME = "app";
 	public static final String SP_KEY_GUIDE_LAST_SHOW_VER = "glsv";
+	public static final String EDITOR = "editor";
+	public static final String DISCOVER = "discover";
+	public static final String SPECIAL = "special";
+	public static final String HOT = "hot";
 
 }

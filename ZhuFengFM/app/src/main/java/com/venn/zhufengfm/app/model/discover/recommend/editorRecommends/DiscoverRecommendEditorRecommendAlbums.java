@@ -25,8 +25,7 @@ public class DiscoverRecommendEditorRecommendAlbums implements ParseJsonTool {
 		ret = json.getInt("ret");
 		title = json.getString("title");
 		hasMore = json.getBoolean("hasMore");
-		DiscoverRecommendEditorRecommendAlbumsItem item = new DiscoverRecommendEditorRecommendAlbumsItem();
-		JsonArrayTool.getJsonArray(itemList, item, json);
+		JsonArrayTool.getJsonArray(itemList, DiscoverRecommendEditorRecommendAlbumsItem.class, json);
 	}
 
 	public int getRet() {

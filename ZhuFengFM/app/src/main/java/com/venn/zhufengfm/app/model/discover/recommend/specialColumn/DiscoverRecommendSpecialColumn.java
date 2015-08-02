@@ -26,8 +26,7 @@ public class DiscoverRecommendSpecialColumn implements ParseJsonTool{
 		ret = json.getInt("ret");
 		title = json.getString("title");
 		hasMore = json.getBoolean("hasMore");
-		DiscoverRecommendSpecialColumnItem item = new DiscoverRecommendSpecialColumnItem();
-		JsonArrayTool.getJsonArray(itemList,item,json);
+		JsonArrayTool.getJsonArray(itemList,DiscoverRecommendSpecialColumnItem.class,json);
 	}
 
 	public int getRet() {

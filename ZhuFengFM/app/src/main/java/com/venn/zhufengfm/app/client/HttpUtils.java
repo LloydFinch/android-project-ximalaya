@@ -1,6 +1,7 @@
 package com.venn.zhufengfm.app.client;
 
 import android.os.Build;
+import com.venn.zhufengfm.app.uitl.MyLog;
 import com.venn.zhufengfm.app.uitl.StreamUtil;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class HttpUtils {
 				connection.setRequestMethod("GET");
 
 				connection.setRequestProperty("Accept:Encoding", "gzip");
-				connection.setRequestProperty("User-Agent", "ting_4.1.7(MI2," + Build.VERSION.SDK + ")");
+				connection.setRequestProperty("User-Agent", "ting_4.1.7(MI2, Android" + Build.VERSION.SDK_INT + ")");
 
 				//Socket打开连接的时间
 				connection.setConnectTimeout(TIMEOUT);
@@ -53,8 +54,8 @@ public class HttpUtils {
 				connection.setInstanceFollowRedirects(true);
 
 				//设置可读写
-				connection.setDoInput(true);
-				connection.setDoOutput(true);
+				//connection.setDoInput(true);
+				//connection.setDoOutput(true);
 
 				//进行连接
 				connection.connect();
@@ -73,6 +74,7 @@ public class HttpUtils {
 
 					//读取inputStream中的数据
 					data = StreamUtil.readStream(inputStream);
+					MyLog.d("HttpUtil1", "--" + (data == null));
 				}
 			}
 			catch (MalformedURLException e) {
@@ -84,10 +86,8 @@ public class HttpUtils {
 			finally {
 				StreamUtil.close(inputStream);
 				StreamUtil.close(connection);
-				url = null;
 			}
 		}
-
 		return data;
 	}
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+		>
+
+	<com.venn.zhufengfm.app.MyView.MyViewPager
+			android:id="@+id/pager_view_my"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:persistentDrawingCache="animation"
+			android:background="#ffc0a2ff"
+			></com.venn.zhufengfm.app.MyView.MyViewPager>
+
+	<FrameLayout
+			android:layout_width="200dp"
+			android:layout_height="13dp"
+			android:layout_gravity="bottom|center"
+			android:layout_marginBottom="10dp"
+			>
+
+		<ImageView
+				android:id="@+id/focus_1"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+
+		<ImageView
+				android:id="@+id/focus"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:background="@drawable/shape_focus_focus"
+				/>
+
+		<ImageView
+				android:id="@+id/focus_2"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:layout_marginLeft="35dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+
+		<ImageView
+				android:id="@+id/focus_3"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:layout_marginLeft="70dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+
+		<ImageView
+				android:id="@+id/focus_4"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:layout_marginLeft="105dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+
+		<ImageView
+				android:id="@+id/focus_5"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:layout_marginLeft="140dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+
+		<ImageView
+				android:id="@+id/focus_6"
+				android:layout_width="10dp"
+				android:layout_height="10dp"
+				android:layout_marginLeft="175dp"
+				android:background="@drawable/shape_focus_image"
+				/>
+	</FrameLayout>
+
+</FrameLayout>

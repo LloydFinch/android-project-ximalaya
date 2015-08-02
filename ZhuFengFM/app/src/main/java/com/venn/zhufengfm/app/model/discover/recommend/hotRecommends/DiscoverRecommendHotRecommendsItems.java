@@ -32,8 +32,7 @@ public class DiscoverRecommendHotRecommendsItems implements ParseJsonTool{
 		categoryId = json.getInt("categoryId");
 		count = json.getInt("count");
 		hasMore = json.getBoolean("hasMore");
-		DiscoverRecommendHotRecommendsItem item = new DiscoverRecommendHotRecommendsItem();
-		JsonArrayTool.getJsonArray(itemList,item,json);
+		JsonArrayTool.getJsonArray(itemList,DiscoverRecommendHotRecommendsItem.class,json);
 	}
 
 	public String getTitle() {

@@ -27,8 +27,7 @@ public class DiscoverRecommendDiscoveryColumns implements ParseJsonTool{
 		ret = json.getInt("ret");
 		title = json.getString("title");
 		locationInHotRecommend = json.getInt("locationInHotRecommend");
-		DiscoverRecommendDiscoveryColumnsItem item = new DiscoverRecommendDiscoveryColumnsItem();
-		JsonArrayTool.getJsonArray(itemList, item, json);
+		JsonArrayTool.getJsonArray(itemList, DiscoverRecommendDiscoveryColumnsItem.class, json);
 	}
 
 	public int getRet() {
