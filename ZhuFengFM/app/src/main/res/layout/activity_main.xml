@@ -24,61 +24,60 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
+	        android:gravity="center"
 			>
 
 		<RadioButton
 				android:id="@+id/main_tab_item_discover"
-				android:layout_width="0dp"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:text="发现"
 				android:button="@null"
-		        android:drawableTop="@drawable/star"
+				android:drawableTop="@drawable/selector_radio1_checked"
 				android:gravity="center"
 				/>
 
 		<RadioButton
 				android:id="@+id/main_tab_item_custom"
-				android:layout_width="0dp"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:text="定制听"
 				android:button="@null"
-				android:drawableTop="@drawable/star"
+				android:drawableTop="@drawable/selector_radio2_checked"
 				android:gravity="center"
 				/>
 
-		<RadioButton
+		<CheckBox
 				android:id="@+id/main_tab_item_play"
-				android:layout_width="0dp"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="NO"
-				android:clickable="false"
 				android:button="@null"
-				android:drawableTop="@drawable/star"
+				android:drawableTop="@drawable/selector_play_press"
 				android:gravity="center"
 				/>
 
 		<RadioButton
 				android:id="@+id/main_tab_item_download"
-				android:layout_width="0dp"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:text="下载听"
 				android:button="@null"
-				android:drawableTop="@drawable/star"
+				android:drawableTop="@drawable/selector_radio3_checked"
 				android:gravity="center"
 				/>
 
 		<RadioButton
 				android:id="@+id/main_tab_item_my"
-				android:layout_width="0dp"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:text="我"
 				android:button="@null"
-				android:drawableTop="@drawable/star"
+				android:drawableTop="@drawable/selector_radio4_checked"
 				android:gravity="center"
 				/>
 	</RadioGroup>

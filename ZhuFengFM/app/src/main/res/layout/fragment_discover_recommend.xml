@@ -2,12 +2,13 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.venn.zhufengfm.app.fragments.discover.DiscoverRecommendFragment">
+             tools:context="com.venn.zhufengfm.app.fragments.discover.DiscoverRecommendFragment"
+		>
 
-	<ListView
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
 			android:id="@+id/discover_recommend_list"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			>
-	</ListView>
+	</com.handmark.pulltorefresh.library.PullToRefreshListView>
 </FrameLayout>

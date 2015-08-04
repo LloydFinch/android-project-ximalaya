@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.venn.zhufengfm.app.MyView.MyViewPager;
+import com.venn.zhufengfm.app.MyView.PinnedSectionListView;
+import com.venn.zhufengfm.app.R;
 import com.venn.zhufengfm.app.fragments.discover.DiscoverRecommendFragment;
 import com.venn.zhufengfm.app.model.discover.recommend.DiscoverRecommend;
 import com.venn.zhufengfm.app.model.discover.recommend.discoveryColumns.DiscoverRecommendDiscoveryColumns;
@@ -34,7 +36,7 @@ import java.util.List;
  */
 
 //发现部分的推荐的Adapter,支持多布局的处理
-public class DiscoverRecommendAdapter extends BaseAdapter {
+public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSectionListView.PinnedSectionListAdapter {
 
 	private Context context;
 
@@ -389,9 +391,13 @@ public class DiscoverRecommendAdapter extends BaseAdapter {
 		myViewPager.setCurrentItem(0);
 
 		ImageView imageView = (ImageView) view.findViewById(R.id.focus);
-		DiscoverRecommendFragment.setFocusImageView(imageView);
+		DiscoverRecommendFragment.setView(imageView, myViewPager);
 
 		return view;
+	}
+
+	public boolean isItemViewTypePinned(int viewType) {
+		return true;
 	}
 
 	//小编推荐,热门推荐的布局

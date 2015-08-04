@@ -1,36 +1,30 @@
 package com.venn.zhufengfm.app.fragments.discover;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.*;
-import com.venn.zhufengfm.app.BaseActivity;
-import com.venn.zhufengfm.app.GuideActivity;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.venn.zhufengfm.app.activity.AlbumDetailActivity;
+import com.venn.zhufengfm.app.activity.GuideActivity;
 import com.venn.zhufengfm.app.R;
-import com.venn.zhufengfm.app.adapters.CommonFragmentPagerAdapter;
 import com.venn.zhufengfm.app.adapters.DiscoverRecommendAdapter;
-import com.venn.zhufengfm.app.adapters.GuideAdapter;
-import com.venn.zhufengfm.app.fragments.DiscoverFragment;
 import com.venn.zhufengfm.app.model.discover.recommend.DiscoverRecommend;
 import com.venn.zhufengfm.app.parsers.DataParser;
 import com.venn.zhufengfm.app.tasks.DiscoverRecommendTask;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
 import com.venn.zhufengfm.app.tasks.TaskResult;
 import com.venn.zhufengfm.app.uitl.Constants;
-import com.venn.zhufengfm.app.uitl.MyLog;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DiscoverRecommendFragment extends Fragment implements AdapterView.OnItemClickListener, TaskCallback,
 		View.OnClickListener, ViewPager.OnPageChangeListener {
@@ -38,8 +32,10 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 	private FragmentActivity activity;
 	private DiscoverRecommend discoverRecommend;
 	private DiscoverRecommendAdapter adapter;
-	private ListView listView;
+	private PullToRefreshListView listView;
+	private static ViewPager viewPager;
 	private static ImageView focusImageView;
+	private Animator animator;
 
 	public DiscoverRecommendFragment() {
 		// Required empty public constructor
@@ -47,12 +43,14 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_discover_recommend, container, false);
-
-		listView = (ListView) view.findViewById(R.id.discover_recommend_list);
 
 		activity = getActivity();
+		View view = inflater.inflate(R.layout.fragment_discover_recommend, container, false);
 
+		listView = (PullToRefreshListView) view.findViewById(R.id.discover_recommend_list);
+		listView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+
+		//listView = (ListView) view.findViewById(R.id.discover_recommend_list);
 		DiscoverRecommendTask task = new DiscoverRecommendTask(this);
 		task.execute();
 		return view;
@@ -70,7 +68,6 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 			if (listView != null) {
 				adapter = new DiscoverRecommendAdapter(activity, discoverRecommend, this, this);
 				listView.setAdapter(adapter);
-				//adapter.setRecommend(discoverRecommend);
 			}
 		}
 	}
@@ -81,7 +78,7 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 		if (view instanceof TextView) {
 			switch (id) {
 				case R.id.item_dis_rec_more:
-					startActivity(new Intent(activity, GuideActivity.class));
+					startActivity(new Intent(activity, AlbumDetailActivity.class));
 					break;
 			}
 		} else if (view instanceof ImageView) {
@@ -97,13 +94,15 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 
 
 	//顶部滑动广告的处理
-	public void onPageScrolled(int i, float v, int i1) {
+	public void onPageScrolled(int pre, float v, int post) {
 
 	}
 
 	public void onPageSelected(int position) {
-		Animation animation = AnimationUtils.loadAnimation(activity, R.anim.anim_focus_slide);
-		Animation initAnimation = AnimationUtils.loadAnimation(activity, R.anim.anim_focus_init);
+
+		animator = AnimatorInflater.loadAnimator(activity, R.animator.animator_focus_image_slide);
+		animator.setTarget(focusImageView);
+		//focusImageView.setLeft(0);
 		switch (position) {
 			case 0:
 			case 1:
@@ -111,13 +110,10 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 			case 3:
 			case 4:
 				if (focusImageView != null) {
-					focusImageView.startAnimation(animation);
+					animator.start();
 				}
 				break;
 			case 5:
-				if (focusImageView != null) {
-					focusImageView.startAnimation(initAnimation);
-				}
 				break;
 			default:
 				break;
@@ -128,7 +124,8 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 
 	}
 
-	public static void setFocusImageView(ImageView focusImage) {
+	public static void setView(ImageView focusImage, ViewPager viewP) {
 		focusImageView = focusImage;
+		viewPager = viewP;
 	}
 }
