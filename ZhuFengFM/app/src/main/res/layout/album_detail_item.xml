@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+		>
+
+	<TextView
+
+			android:id="@+id/album_detail_item_intro"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="15sp"
+			android:text="《段子来了》"
+			/>
+
+	<TextView
+			android:id="@+id/album_detail_item_day"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="10sp"
+			android:text="19天前"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentTop="true"
+			/>
+
+	<LinearLayout
+			android:id="@+id/album_detail_item_block"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_below="@id/album_detail_item_intro"
+			android:layout_marginTop="5dp"
+			android:layout_alignParentBottom="true"
+			>
+
+		<CheckBox
+				android:id="@+id/album_detail_item_playTimes"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="2.4万"
+				android:button="@null"
+				android:drawableLeft="@drawable/album_play_count"
+				android:gravity="center"
+				android:layout_marginLeft="5dp"
+				android:textSize="12sp"
+				/>
+
+		<CheckBox
+				android:id="@+id/album_detail_item_duration"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="06:48"
+				android:button="@null"
+				android:drawableLeft="@drawable/load_wait"
+				android:gravity="center"
+				android:layout_marginLeft="5dp"
+				android:textSize="12sp"
+				/>
+
+		<CheckBox
+				android:id="@+id/album_detail_item_comment"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="34"
+				android:button="@null"
+				android:drawableLeft="@drawable/bg_myitem_comments"
+				android:gravity="center"
+				android:layout_marginLeft="5dp"
+				android:textSize="12sp"
+				/>
+	</LinearLayout>
+
+
+	<CheckBox
+			android:id="@+id/album_detail_item_download"
+			android:layout_marginTop="5dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=""
+			android:button="@null"
+			android:drawableTop="@drawable/download_item_normal"
+			android:layout_below="@id/album_detail_item_day"
+			android:gravity="center"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true"
+			/>
+</RelativeLayout>

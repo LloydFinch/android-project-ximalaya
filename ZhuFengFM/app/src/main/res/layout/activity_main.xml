@@ -24,7 +24,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
-	        android:gravity="center"
+			android:gravity="center"
 			>
 
 		<RadioButton
@@ -55,6 +55,7 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:button="@null"
+				android:clickable="true"
 				android:drawableTop="@drawable/selector_play_press"
 				android:gravity="center"
 				/>

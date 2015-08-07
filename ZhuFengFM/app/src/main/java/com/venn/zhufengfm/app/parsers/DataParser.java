@@ -1,10 +1,10 @@
 package com.venn.zhufengfm.app.parsers;
 
-import android.util.Log;
 import com.venn.zhufengfm.app.model.discover.CategoryTagMenu;
 import com.venn.zhufengfm.app.model.discover.DiscoverCategory;
 import com.venn.zhufengfm.app.model.discover.DiscoverTab;
 import com.venn.zhufengfm.app.model.discover.recommend.DiscoverRecommend;
+import com.venn.zhufengfm.app.model.player.AlbumDetail;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -103,5 +103,16 @@ public class DataParser {
 			e.printStackTrace();
 		}
 		return discoverRecommend;
+	}
+
+	public static AlbumDetail parseAlbumDetail(JSONObject jsonObject) {
+		AlbumDetail albumDetail = new AlbumDetail();
+		try {
+			albumDetail.parseJSON(jsonObject);
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return albumDetail;
 	}
 }

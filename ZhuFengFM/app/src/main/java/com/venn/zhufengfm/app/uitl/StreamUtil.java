@@ -15,7 +15,6 @@ public class StreamUtil {
 	}
 
 	public static byte[] readStream(InputStream in) {
-
 		byte[] data = null;
 		ByteArrayOutputStream baos = null;
 		if (in != null) {
@@ -47,7 +46,6 @@ public class StreamUtil {
 
 	public static void close(Object stream) {
 		if (stream != null) {
-
 			try {
 				if (stream instanceof InputStream) {
 					((InputStream) stream).close();

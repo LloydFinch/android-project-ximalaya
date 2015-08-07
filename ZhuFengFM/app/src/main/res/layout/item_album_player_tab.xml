@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+		>
+
+	<RadioGroup
+			android:id="@+id/album_detail_tab_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:background="#ff172a29"
+			>
+
+		<CheckBox
+				android:id="@+id/album_detail_tab1"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="收藏"
+				android:button="@null"
+				android:drawableLeft="@drawable/selector_album_tab1"
+				android:gravity="center"
+		        android:textColor="#ffd1ffe0"
+				/>
+
+		<CheckBox
+				android:id="@+id/album_detail_tab2"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="批量下载"
+				android:button="@null"
+				android:drawableLeft="@drawable/selector_album_tab2"
+				android:gravity="center"
+				android:textColor="#ffd1ffe0"
+				/>
+
+		<CheckBox
+				android:id="@+id/album_detail_tab3"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="相关推荐"
+				android:button="@null"
+				android:drawableLeft="@drawable/selector_album_tab3"
+				android:gravity="center"
+				android:textColor="#ffd1ffe0"
+				/>
+	</RadioGroup>
+</LinearLayout>

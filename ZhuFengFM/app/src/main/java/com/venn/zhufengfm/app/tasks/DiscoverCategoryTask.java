@@ -1,7 +1,6 @@
 package com.venn.zhufengfm.app.tasks;
 
-import com.venn.zhufengfm.app.client.ClientDiscoverAPI;
-import com.venn.zhufengfm.app.client.HttpUtils;
+import com.venn.zhufengfm.app.client.ClientJSONAPI;
 import com.venn.zhufengfm.app.uitl.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +18,7 @@ public class DiscoverCategoryTask extends BaseTask {
 
 		TaskResult result = new TaskResult();
 		result.setTaskId(Constants.TASK_DISCOVER_CATEGORY);
-		String categories = ClientDiscoverAPI.getDiscoverCategories();
+		String categories = ClientJSONAPI.getDiscoverCategories();
 		try {
 			JSONObject jsonObject = new JSONObject(categories);
 			result.setData(jsonObject);

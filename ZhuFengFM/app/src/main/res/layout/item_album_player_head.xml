@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="5dp"
+		>
+
+	<TextView
+			android:id="@+id/album_detail_head_count"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="2"
+			android:text="共20集"
+			android:textSize="15sp"
+			android:layout_alignParentLeft="true"
+			/>
+
+	<CheckBox
+			android:id="@+id/album_detail_head_choose"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:drawableLeft="@drawable/selector_album_head1"
+			android:text="选集"
+			android:textSize="15sp"
+			android:button="@null"
+			android:gravity="center"
+			/>
+
+	<CheckBox
+			android:id="@+id/album_detail_head_sort"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:drawableLeft="@drawable/selector_album_head2"
+			android:text="排序"
+			android:textSize="15sp"
+			android:button="@null"
+			android:gravity="center"
+			/>
+</LinearLayout>

@@ -15,30 +15,8 @@ import com.venn.zhufengfm.app.tasks.ImageLoadTask;
  * Created by VennUser on 2015/8/1.
  */
 public final class SetImageUtil {
-	public static void setImage(ImageView imageView, String path, Context context) {
-		boolean needLoad = true;
+	public static void setImage(boolean needLoad, ImageView imageView, String path, Context context) {
 		Object tag = imageView.getTag();
-
-		Bitmap bitmap = MemoryCache.getInstance().getBitmapFromMemory(path);
-		if (bitmap == null) {
-			byte[] data = FileCache.createInstance(context).loadFile(path);
-			if (data != null) {
-				bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-			}
-			if (bitmap == null) {
-				if (tag != null) {
-					if (tag instanceof String) {
-						if (tag.equals(path)) {
-							needLoad = false;
-						}
-					}
-				}
-			} else {
-				imageView.setImageBitmap(bitmap);
-			}
-		} else {
-			imageView.setImageBitmap(bitmap);
-		}
 
 		if (needLoad) {
 			imageView.setTag(tag);
@@ -47,6 +25,38 @@ public final class SetImageUtil {
 				task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, path);
 			} else {
 				task.execute(path);
+			}
+		} else {
+
+			boolean otherLoad = true;
+			Bitmap bitmap = MemoryCache.getInstance().getBitmapFromMemory(path);
+			if (bitmap == null) {
+				byte[] data = FileCache.createInstance(context).loadFile(path);
+				if (data != null) {
+					bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+				}
+				if (bitmap == null) {
+					if (tag != null) {
+						if (tag instanceof String) {
+							if (tag.equals(path)) {
+								otherLoad = false;
+							}
+						}
+					}
+				} else {
+					imageView.setImageBitmap(bitmap);
+				}
+			} else {
+				imageView.setImageBitmap(bitmap);
+			}
+			if (otherLoad) {
+				imageView.setTag(tag);
+				ImageLoadTask task = new ImageLoadTask(imageView, context);
+				if (Build.VERSION.SDK_INT >= 11) {
+					task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, path);
+				} else {
+					task.execute(path);
+				}
 			}
 		}
 	}

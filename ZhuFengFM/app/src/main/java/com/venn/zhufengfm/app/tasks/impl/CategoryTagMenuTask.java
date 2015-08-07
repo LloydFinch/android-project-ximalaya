@@ -1,6 +1,6 @@
 package com.venn.zhufengfm.app.tasks.impl;
 
-import com.venn.zhufengfm.app.client.ClientDiscoverAPI;
+import com.venn.zhufengfm.app.client.ClientJSONAPI;
 import com.venn.zhufengfm.app.tasks.BaseTask;
 import com.venn.zhufengfm.app.tasks.TaskCallback;
 import com.venn.zhufengfm.app.tasks.TaskResult;
@@ -27,7 +27,7 @@ public class CategoryTagMenuTask extends BaseTask {
 		if (params != null && params.length > 0) {
 			type = params[0];
 		}
-		String str = ClientDiscoverAPI.getCategoryTagMenu(type);
+		String str = ClientJSONAPI.getCategoryTagMenu(type);
 
 		if (str != null) {
 			try {

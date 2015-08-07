@@ -47,24 +47,24 @@ public class ImageLoadTask extends AsyncTask<String, Integer, Bitmap> {
 				bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
 			}
 
-			//进行二次采样
-
-			//1 只获取尺寸
-			BitmapFactory.Options options = new BitmapFactory.Options();
-
-			//2 计算采样比率
-			//3 设置Options为实际解析图片并设置采样比率
-			options.inJustDecodeBounds = false;
-			options.inPurgeable = true;
-
-			//设置解码器可以使用的解码像素颜色,注意透明度与颜色的管理
-			//不能使用将自动使用ARGB_8888
-			//options.inPreferredConfig = Bitmap.Config.ARGB_4444;
-
-			options.inSampleSize = ImageSampleUtil.calculateInSampleSize(options, imageView.getWidth(), imageView
-					.getHeight());
-
-			BitmapFactory.decodeByteArray(data, 0, data.length, options);
+//			//进行二次采样
+//
+//			//1 只获取尺寸
+//			BitmapFactory.Options options = new BitmapFactory.Options();
+//
+//			//2 计算采样比率
+//			//3 设置Options为实际解析图片并设置采样比率
+//			options.inJustDecodeBounds = false;
+//			options.inPurgeable = true;
+//
+//			//设置解码器可以使用的解码像素颜色,注意透明度与颜色的管理
+//			//不能使用将自动使用ARGB_8888
+//			//options.inPreferredConfig = Bitmap.Config.ARGB_4444;
+//
+//			options.inSampleSize = ImageSampleUtil.calculateInSampleSize(options, imageView.getWidth(), imageView
+//					.getHeight());
+//
+//			BitmapFactory.decodeByteArray(data, 0, data.length, options);
 		}
 
 		MyLog.d("bitmap", "--" + (bitmap == null));

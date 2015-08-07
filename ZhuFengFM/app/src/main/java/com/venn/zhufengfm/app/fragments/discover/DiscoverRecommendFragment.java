@@ -73,22 +73,33 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 	}
 
 	public void onClick(View view) {
-		String s = (String) view.getTag();
+
+		int albumId = -1;
 		int id = view.getId();
 		if (view instanceof TextView) {
 			switch (id) {
 				case R.id.item_dis_rec_more:
-					startActivity(new Intent(activity, AlbumDetailActivity.class));
+
+					//TODO 点击小编推荐部分的更多
 					break;
 			}
 		} else if (view instanceof ImageView) {
 
 			Toast.makeText(activity, "点击了图片", Toast.LENGTH_SHORT).show();
-			switch (id) {
 
-				//TODO 点击了图片
+			try {
+				albumId = (Integer) view.getTag();
+			}
+			catch (Exception e) {
 
 			}
+			Intent intent = new Intent(activity, AlbumDetailActivity.class);
+			intent.putExtra("albumId", albumId);
+			startActivity(intent);
+		}
+
+		if (albumId != -1) {
+
 		}
 	}
 
@@ -102,16 +113,12 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 
 		animator = AnimatorInflater.loadAnimator(activity, R.animator.animator_focus_image_slide);
 		animator.setTarget(focusImageView);
-		//focusImageView.setLeft(0);
 		switch (position) {
 			case 0:
 			case 1:
 			case 2:
 			case 3:
 			case 4:
-				if (focusImageView != null) {
-					animator.start();
-				}
 				break;
 			case 5:
 				break;
@@ -124,6 +131,7 @@ public class DiscoverRecommendFragment extends Fragment implements AdapterView.O
 
 	}
 
+	//给顶部广告部分的ViewPager添加ImageView
 	public static void setView(ImageView focusImage, ViewPager viewP) {
 		focusImageView = focusImage;
 		viewPager = viewP;

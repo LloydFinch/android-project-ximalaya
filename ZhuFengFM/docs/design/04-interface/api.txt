@@ -216,7 +216,7 @@ http://mobile.ximalaya.com/mobile/discovery/v1/category/album
 
 URL:
 
-	http://mobile.ximalaya.com/mobile/others/ca/album/track/203355/true/1/20?device=android&pageSize=20&albumId=203355&isAsc=true
+	http://mobile.ximalaya.com/mobile/others/ca/album/track/203355/true/1/20?device=android&pageSize=20&albumId=276377&isAsc=true
 
 参数顺序
 

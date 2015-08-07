@@ -1,6 +1,6 @@
 package com.venn.zhufengfm.app.tasks;
 
-import com.venn.zhufengfm.app.client.ClientDiscoverAPI;
+import com.venn.zhufengfm.app.client.ClientJSONAPI;
 import com.venn.zhufengfm.app.uitl.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +21,7 @@ public class DiscoverTabTask extends BaseTask {
 		TaskResult result = new TaskResult();
 		result.setTaskId(Constants.TASK_DISCOVER_TAB);
 
-		String tabs = ClientDiscoverAPI.getDiscoverTabs();
+		String tabs = ClientJSONAPI.getDiscoverTabs();
 		if (tabs != null) {
 			try {
 				result.setData(new JSONObject(tabs));

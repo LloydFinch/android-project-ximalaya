@@ -1,9 +1,6 @@
 package com.venn.zhufengfm.app.tasks;
 
-import com.venn.zhufengfm.app.client.ClientDiscoverAPI;
-import com.venn.zhufengfm.app.tasks.BaseTask;
-import com.venn.zhufengfm.app.tasks.TaskCallback;
-import com.venn.zhufengfm.app.tasks.TaskResult;
+import com.venn.zhufengfm.app.client.ClientJSONAPI;
 import com.venn.zhufengfm.app.uitl.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +17,7 @@ public class DiscoverRecommendTask extends BaseTask {
 	protected TaskResult doInBackground(String... params) {
 		TaskResult result = new TaskResult();
 		result.setTaskId(Constants.TASK_DISCOVER_RECOMMEND);
-		String recommends = ClientDiscoverAPI.getDiscoverRecommends();
+		String recommends = ClientJSONAPI.getDiscoverRecommends();
 		try {
 			JSONObject jsonObject = new JSONObject(recommends);
 			result.setData(jsonObject);

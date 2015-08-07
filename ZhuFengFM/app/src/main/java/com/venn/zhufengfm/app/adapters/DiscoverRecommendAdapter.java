@@ -166,6 +166,11 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			holderType1.button1 = (ImageButton) view.findViewById(R.id.item_disc_rec_line1_image);
 			holderType1.button2 = (ImageButton) view.findViewById(R.id.item_disc_rec_line2_image);
 			holderType1.button3 = (ImageButton) view.findViewById(R.id.item_disc_rec_line3_image);
+
+			holderType1.button1.setOnClickListener(clickListener);
+			holderType1.button2.setOnClickListener(clickListener);
+			holderType1.button3.setOnClickListener(clickListener);
+
 			holderType1.textView1 = (TextView) view.findViewById(R.id.item_disc_rec_line1_text);
 			holderType1.textView2 = (TextView) view.findViewById(R.id.item_disc_rec_line2_text);
 			holderType1.textView3 = (TextView) view.findViewById(R.id.item_disc_rec_line3_text);
@@ -194,9 +199,13 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			SetTextUtil.setText(holderType1.textView2, item1.getTrackTitle());
 			SetTextUtil.setText(holderType1.textView3, item2.getTrackTitle());
 
-			SetImageUtil.setImage(holderType1.button1, item0.getCoverLarge(), context);
-			SetImageUtil.setImage(holderType1.button2, item1.getCoverLarge(), context);
-			SetImageUtil.setImage(holderType1.button3, item2.getCoverLarge(), context);
+			SetImageUtil.setImage(false, holderType1.button1, item0.getCoverLarge(), context);
+			SetImageUtil.setImage(false, holderType1.button2, item1.getCoverLarge(), context);
+			SetImageUtil.setImage(false, holderType1.button3, item2.getCoverLarge(), context);
+
+			holderType1.button1.setTag(item0.getAlbumId());
+			holderType1.button2.setTag(item1.getAlbumId());
+			holderType1.button3.setTag(item2.getAlbumId());
 
 		} else {
 			MyLog.d("albums state", "albums is null");
@@ -230,6 +239,9 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			holderType2.block2text2 = (TextView) view.findViewById(R.id.item_disc_rec_spec_line2_right_text2);
 			holderType2.block2text3 = (TextView) view.findViewById(R.id.item_disc_rec_spec_line2_right_text3);
 
+			holderType2.imageView1.setOnClickListener(clickListener);
+			holderType2.imageView2.setOnClickListener(clickListener);
+
 			view.setTag(holderType2);
 		}
 
@@ -250,11 +262,10 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 		SetTextUtil.setText(holderType2.block2text2, item1.getSubtitle());
 		SetTextUtil.setText(holderType2.block2text3, item1.getFootnote());
 
-		//holderType2.imageView1.setImageResource(R.mipmap.ic_launcher);
-		//holderType2.imageView2.setImageResource(R.mipmap.ic_launcher);
+		SetImageUtil.setImage(false, holderType2.imageView1, item0.getCoverPath(), context);
+		SetImageUtil.setImage(false, holderType2.imageView2, item1.getCoverPath(), context);
 
-		SetImageUtil.setImage(holderType2.imageView1, item0.getCoverPath(), context);
-		SetImageUtil.setImage(holderType2.imageView2, item1.getCoverPath(), context);
+		//TODO 点击精品听单跳转到相关的介绍页面
 
 		return view;
 	}
@@ -276,6 +287,11 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			holderType3.imageView2 = (ImageView) view.findViewById(R.id.item_disc_rec_disc_image2);
 			holderType3.imageView3 = (ImageView) view.findViewById(R.id.item_disc_rec_disc_image3);
 			holderType3.imageView4 = (ImageView) view.findViewById(R.id.item_disc_rec_disc_image4);
+
+			holderType3.imageView1.setOnClickListener(clickListener);
+			holderType3.imageView2.setOnClickListener(clickListener);
+			holderType3.imageView3.setOnClickListener(clickListener);
+			holderType3.imageView4.setOnClickListener(clickListener);
 
 			holderType3.line1Text1 = (TextView) view.findViewById(R.id.item_disc_rec_disc_line1_right_text1);
 			holderType3.line1Text2 = (TextView) view.findViewById(R.id.item_disc_rec_disc_line1_right_text2);
@@ -307,11 +323,12 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 		SetTextUtil.setText(holderType3.line4Text1, item3.getTitle());
 		SetTextUtil.setText(holderType3.line4Text2, item3.getSubtitle());
 
-		SetImageUtil.setImage(holderType3.imageView1, item0.getCoverPath(), context);
-		SetImageUtil.setImage(holderType3.imageView2, item1.getCoverPath(), context);
-		SetImageUtil.setImage(holderType3.imageView3, item2.getCoverPath(), context);
-		SetImageUtil.setImage(holderType3.imageView4, item3.getCoverPath(), context);
+		SetImageUtil.setImage(false, holderType3.imageView1, item0.getCoverPath(), context);
+		SetImageUtil.setImage(false, holderType3.imageView2, item1.getCoverPath(), context);
+		SetImageUtil.setImage(false, holderType3.imageView3, item2.getCoverPath(), context);
+		SetImageUtil.setImage(false, holderType3.imageView4, item3.getCoverPath(), context);
 
+		//TODO 点击发现新奇跳转到相应的介绍页面
 		return view;
 	}
 
@@ -330,6 +347,11 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			holderType1.button1 = (ImageButton) view.findViewById(R.id.item_disc_rec_line1_image);
 			holderType1.button2 = (ImageButton) view.findViewById(R.id.item_disc_rec_line2_image);
 			holderType1.button3 = (ImageButton) view.findViewById(R.id.item_disc_rec_line3_image);
+
+			holderType1.button1.setOnClickListener(clickListener);
+			holderType1.button2.setOnClickListener(clickListener);
+			holderType1.button3.setOnClickListener(clickListener);
+
 			holderType1.textView1 = (TextView) view.findViewById(R.id.item_disc_rec_line1_text);
 			holderType1.textView2 = (TextView) view.findViewById(R.id.item_disc_rec_line2_text);
 			holderType1.textView3 = (TextView) view.findViewById(R.id.item_disc_rec_line3_text);
@@ -356,9 +378,13 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 		SetTextUtil.setText(holderType1.textView2, item1.getTrackTitle());
 		SetTextUtil.setText(holderType1.textView3, item2.getTrackTitle());
 
-		SetImageUtil.setImage(holderType1.button1, item0.getCoverLarge(), context);
-		SetImageUtil.setImage(holderType1.button2, item1.getCoverLarge(), context);
-		SetImageUtil.setImage(holderType1.button3, item2.getCoverLarge(), context);
+		SetImageUtil.setImage(false, holderType1.button1, item0.getCoverLarge(), context);
+		SetImageUtil.setImage(false, holderType1.button2, item1.getCoverLarge(), context);
+		SetImageUtil.setImage(false, holderType1.button3, item2.getCoverLarge(), context);
+
+		holderType1.button1.setTag(item0.getAlbumId());
+		holderType1.button1.setTag(item1.getAlbumId());
+		holderType1.button1.setTag(item2.getAlbumId());
 
 		return view;
 	}
@@ -384,14 +410,17 @@ public class DiscoverRecommendAdapter extends BaseAdapter implements PinnedSecti
 			String path = itemList.get(i).getPic();
 			ImageView imageView = new ImageView(context);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			SetImageUtil.setImage(imageView, path, context);
+			SetImageUtil.setImage(false, imageView, path, context);
 			imageViewList.add(imageView);
 		}
 		myViewPager.setAdapter(new MyViewPagerAdapter(imageViewList));
 		myViewPager.setCurrentItem(0);
 
 		ImageView imageView = (ImageView) view.findViewById(R.id.focus);
-		DiscoverRecommendFragment.setView(imageView, myViewPager);
+		if (imageView != null) {
+			imageView.setOnClickListener(clickListener);
+			DiscoverRecommendFragment.setView(imageView, myViewPager);
+		}
 
 		return view;
 	}

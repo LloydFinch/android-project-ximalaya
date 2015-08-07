@@ -30,18 +30,17 @@ public class HttpUtils {
 	public static byte[] doGet(String path) {
 
 		byte[] data = null;
-		URL url = null;
 		if (path != null) {
 
 			HttpURLConnection connection = null;
 			InputStream inputStream = null;
 
 			try {
-				url = new URL(path);
+				URL url = new URL(path);
 				connection = (HttpURLConnection) url.openConnection();
 				connection.setRequestMethod("GET");
 
-				connection.setRequestProperty("Accept:Encoding", "gzip");
+				connection.setRequestProperty("Accept-Encoding", "gzip");
 				connection.setRequestProperty("User-Agent", "ting_4.1.7(MI2, Android" + Build.VERSION.SDK_INT + ")");
 
 				//Socket打开连接的时间
@@ -74,11 +73,7 @@ public class HttpUtils {
 
 					//读取inputStream中的数据
 					data = StreamUtil.readStream(inputStream);
-					MyLog.d("HttpUtil1", "--" + (data == null));
 				}
-			}
-			catch (MalformedURLException e) {
-				e.printStackTrace();
 			}
 			catch (IOException e) {
 				e.printStackTrace();

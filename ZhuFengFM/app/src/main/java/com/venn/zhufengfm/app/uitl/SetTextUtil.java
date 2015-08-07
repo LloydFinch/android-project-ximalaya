@@ -1,6 +1,7 @@
 package com.venn.zhufengfm.app.uitl;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
